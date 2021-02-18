@@ -3,7 +3,7 @@
 <c:import url="../layout/app.jsp">
     <c:param name="content">
         <c:choose>
-            <c:when test="${message != null}">
+            <c:when test="${tasklist != null}">
                 <h2>id : ${tasklist.id} のタスク編集ページ</h2>
 
                 <form method="POST" action="${pageContext.request.contextPath}/update">
@@ -16,17 +16,16 @@
                     <input type="hidden" name="_token" value="${_token}" />
                 </form>
                 <script>
-                function confirmDestroy() {
-                    if(confirm("本当に削除してよろしいですか？")) {
-                        document.forms[1].submit();
+                    function confirmDestroy() {
+                        if(confirm("本当に削除してよろしいですか？")) {
+                            document.forms[1].submit();
+                        }
                     }
-                }
                 </script>
             </c:when>
             <c:otherwise>
                 <h2>お探しのデータは見つかりませんでした。</h2>
             </c:otherwise>
         </c:choose>
-
     </c:param>
 </c:import>
