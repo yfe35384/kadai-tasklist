@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import models.Tasklist;
+import models.Task;
 import utils.DBUtil;
 
 /**
@@ -40,7 +40,7 @@ public class IndexServlet extends HttpServlet {
             page = Integer.parseInt(request.getParameter("page"));
         } catch(NumberFormatException e) {}
 
-        List<Tasklist> tasklist = em.createNamedQuery("getAllTasklist", Tasklist.class)
+        List<Task> tasklist = em.createNamedQuery("getAllTasklist", Task.class)
         .setFirstResult(15 * (page - 1))
         .setMaxResults(15)
         .getResultList();
